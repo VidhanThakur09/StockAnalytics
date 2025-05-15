@@ -1,0 +1,18 @@
+.container{
+  color:#424242 ; 
+}
+.title{
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+.subtitle{
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+.heroBtn{
+    width: 20%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: #387ed1;
+    color: white;
+}
