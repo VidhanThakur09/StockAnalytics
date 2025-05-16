@@ -1,0 +1,16 @@
+a{
+    color: #424242b2;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.col p{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.subtitle{
+    margin-top: 10px;
+    font-size: .8rem !important;
+    color: #666;
+}
