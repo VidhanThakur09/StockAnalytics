@@ -7,20 +7,28 @@ import PricingPage from './landing_page/pricing/PricingPage'
 import ProductPage from './landing_page/products/ProductPage'
 import SignUp from './landing_page/signup/SignUp'
 import SupportPage from './landing_page/support/SupportPage'
+import Error404 from './landing_page/404Error'
+import {BrowserRouter,Routes, Route} from 'react-router-dom'
+import Navbar from './landing_page/Navbar'
+import Footer from './landing_page/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <HeroPage/>
-      
-      {/* <AboutPage/>
-      <PricingPage/>
-      <ProductPage/>
-      <SignUp/>
-      <SupportPage/> */}
-    </>
+    <BrowserRouter>
+    <Navbar/>
+      <Routes>
+        <Route path="/" element={<HeroPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
   )
 }
 

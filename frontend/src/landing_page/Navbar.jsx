@@ -1,5 +1,6 @@
 import React from "react";
 import '/public/css/Navbar.css';
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <div>
@@ -8,9 +9,9 @@ export default function Navbar() {
         style={{ backgroundColor: "white" }}
       >
         <div className="container px-3">
-          <a className="navbar-brand " href="#">
+          <Link className="navbar-brand " to="/">
             <img src="images/logo.svg" style={{ width: "25%" }} alt="logo" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -26,29 +27,29 @@ export default function Navbar() {
             <form className="d-flex" role="search">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link className="nav-link active" aria-current="page" to="/signup">
                     Signup
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link className="nav-link active" aria-current="page" to="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link className="nav-link active" aria-current="page" to="/products">
                     Products
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link className="nav-link active" aria-current="page" to="/pricing">
                     Pricing
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link className="nav-link active" aria-current="page" to="/support">
                     Support
-                  </a>
+                  </Link>
                 </li>
                 <i className="fa fa-bars burger" aria-hidden="true"></i>
               </ul>
