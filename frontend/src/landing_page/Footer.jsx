@@ -13,44 +13,44 @@ export default function Footer() {
             </p>
           </div>
           <div className="col">
-            <p>Company</p>
-            <a href="">About</a>
+            <p className="para">Company</p>
+            <a className="links" href="">About</a>
             <br />
-            <a href="">Products</a>
+            <a className="links" href="">Products</a>
             <br />
-            <a href="">Pricing</a>
+            <a className="links" href="">Pricing</a>
             <br />
-            <a href="">Referral programme</a>
+            <a className="links" href="">Referral programme</a>
             <br />
-            <a href="">Careers</a>
+            <a className="links" href="">Careers</a>
             <br />
-            <a href="">Zerodha.tech</a>
+            <a className="links" href="">Zerodha.tech</a>
             <br />
-            <a href="">Press & media</a>
+            <a className="links" href="">Press & media</a>
             <br />
-            <a href="">Zerodha cares (CSR)</a>
-            <br />
-          </div>
-          <div className="col">
-            <p>Support</p>
-            <a href="">Contact</a>
-            <br />
-            <a href="">Support portal</a>
-            <br />
-            <a href="">Z-Connect blog</a>
-            <br />
-            <a href="">List of charges</a>
-            <br />
-            <a href="">Downloads & resources</a>
+            <a className="links" href="">Zerodha cares (CSR)</a>
             <br />
           </div>
           <div className="col">
-            <p>Account</p>
-            <a href="">Open an account</a>
+            <p className="para">Support</p>
+            <a className="links" href="">Contact</a>
             <br />
-            <a href="">Fund transfer</a>
+            <a className="links" href="">Support portal</a>
             <br />
-            <a href="">60 day challenge</a>
+            <a className="links" href="">Z-Connect blog</a>
+            <br />
+            <a className="links" href="">List of charges</a>
+            <br />
+            <a className="links" href="">Downloads & resources</a>
+            <br />
+          </div>
+          <div className="col">
+            <p className="para">Account</p>
+            <a className="links" href="">Open an account</a>
+            <br />
+            <a className="links" href="">Fund transfer</a>
+            <br />
+            <a className="links" href="">60 day challenge</a>
             <br />
           </div>
         </div>
