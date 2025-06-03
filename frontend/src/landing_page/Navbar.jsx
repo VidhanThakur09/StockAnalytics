@@ -25,7 +25,7 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <form className="d-flex" role="search">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 pe-5">
                 <li className="nav-item">
                   <Link className="nav-link active" aria-current="page" to="/signup">
                     Signup
@@ -51,7 +51,6 @@ export default function Navbar() {
                     Support
                   </Link>
                 </li>
-                <i className="fa fa-bars burger" aria-hidden="true"></i>
               </ul>
             </form>
           </div>

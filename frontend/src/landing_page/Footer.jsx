@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="col">
             <img src="images/logo.svg" style={{ width: "50%" }} />
             <p className="subtitle">
-              &copy; 2010 - 2024, Not Zerodha Broking Ltd. <br />
+              &copy; 2025 - 2026, Not Zerodha Broking Ltd. <br />
               All rights reserved.
             </p>
           </div>

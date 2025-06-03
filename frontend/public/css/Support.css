@@ -1,0 +1,30 @@
+#supportHero{
+    color: white;
+    background-color: #387ed1;
+}
+#supportWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 32px;
+    padding:3rem 3rem 0 3rem ;
+}
+#supportHero a{
+    color: white;
+    
+}
+#superLinks{
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 4px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 15px
+}
+#supportHero input{
+  padding: 20px 10px;
+  width: 100%;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+}
