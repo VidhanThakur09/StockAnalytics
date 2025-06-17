@@ -18,23 +18,23 @@ const BuyActionWindow = ({ uid }) => {
     })
   }, [])
 
-  const handleBuyClick = () => {
+  const handleSellClick = () => {
     axios.post("http://localhost:3002/newOrder", {
       name: stockData.name,
       qty: stockQuantity,
       price: stockPrice,
-      mode: "BUY",
+      mode: "SELL",
     });
 
-    GeneralContext.closeBuyWindow();
+    GeneralContext.closeSellWindow();
   };
 
   const handleCancelClick = () => {
-    GeneralContext.closeBuyWindow();
+    GeneralContext.closeSellWindow();
   };
 
   return (
-    <div className="container" id="buy-window" draggable="true">
+    <div className="container" id="sell-window" draggable="true">
       <div className="regular-order">
         <div className="inputs">
           <fieldset>
@@ -69,8 +69,8 @@ const BuyActionWindow = ({ uid }) => {
       <div className="buttons">
         <span>Margin required {stockQuantity * stockPrice * 0.1}</span>
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
-            Buy
+          <Link className="btn btn-blue" onClick={handleSellClick}>
+            Sell
           </Link>
           <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
             Cancel

@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const holdingsModel = require('./model/HoldingsModel.js');
 const positionsModel = require('./model/PositionsModel.js');
 const ordersModel = require('./model/OrdersModel.js');
+const WatchListModel = require('./model/WatchListModel.js');
 
 const PORT = process.env.PORT || 3002;
 const MONGO_URL = process.env.MONGO_URL;
@@ -37,6 +38,10 @@ const PositionsInitDB = async()=>{
     await positionsModel.insertMany(data.positions);
     // console.log("Positions initialized in DB");
 }
+const WatchListInitDB = async()=>{
+    await WatchListModel.deleteMany({});
+    await WatchListModel.insertMany(data.watchlist);
+}
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Express.js');
@@ -45,9 +50,21 @@ app.get('/allholdings', async (req, res) => {
     let allHoldings = await holdingsModel.find({});
     res.json(allHoldings);
 });
+app.get('/allorders', async (req, res) => {
+    let allOrders = await ordersModel.find({});
+    res.json(allOrders);
+});
 app.get('/allpositions', async (req, res) => {
     let allPositions = await positionsModel.find({});
     res.json(allPositions);
+})
+app.get('/allwatchlist', async (req, res) => {
+    let allWatchList = await WatchListModel.find({});
+    res.json(allWatchList);
+})
+app.post('/stock/:id', async (req, res) => {
+    let stockData = await WatchListModel.findById(req.params.id);
+    res.json(stockData);
 })
 // app.get('/holdings', (req, res) => {
 //     HoldingInitDB().then(()=>{
@@ -60,6 +77,13 @@ app.get('/allpositions', async (req, res) => {
 //     PositionsInitDB().then(()=>{
 //         console.log("Positions initialized in DB");
 //         res.send("Positions initialized in DB");
+//     }).catch(err => console.log(err));
+// })
+// app.get('/watchlist', (req, res) => {
+//     WatchListInitDB()
+//     .then(()=>{
+//         console.log("WatchList initialized in DB");
+//         res.send("WatchList initialized in DB");
 //     }).catch(err => console.log(err));
 // })
  app.post("/newOrder", async (req, res) => {

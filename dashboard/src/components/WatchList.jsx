@@ -1,10 +1,18 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import {Tooltip,Grow} from "@mui/material";
-import {watchlist} from '../data/data.js';
+// import {watchlist} from '../data/data.js';
 import WatchListItem from "./WatchListItem.jsx";
 import { DoughnutChart } from "./DoughnutChart.jsx";
+import axios from 'axios';
 
 export default function WatchList() {
+  const [watchlist, setWatchlist] = useState([]);
+  useEffect(()=>{
+    axios.get('http://localhost:3002/allwatchlist').then((response) => {
+      console.log(response.data);
+      setWatchlist(response.data);
+    })
+  }, [])
   const data = {
   labels: watchlist.map((stock) => stock.name),
   datasets: [

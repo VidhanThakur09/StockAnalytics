@@ -1,8 +1,5 @@
 import React,{useContext} from 'react'
 import {Tooltip,Grow} from "@mui/material";
-import {BarChartOutlined, MoreHoriz,} from "@mui/icons-material";
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import DeleteIcon from '@mui/icons-material/Delete';
 import {GeneralContext} from "./GeneralContext.jsx";
 
 export default function WatchListAction({uid=1}){
@@ -10,13 +7,16 @@ export default function WatchListAction({uid=1}){
   const handleBuyClick = () => {
     generalContext.openBuyWindow(uid);
   };
+  const handleSellClick = () => {
+    generalContext.openSellWindow(uid);
+  };
   return (
     <span className='actions'>
         <span>
             <Tooltip title="buy (by)" placement='top' arrow TransitionComponent={Grow} onClick={handleBuyClick}>
                 <button className='buy'>Buy</button>
             </Tooltip>
-            <Tooltip title="Sell (S)" placement="top" arrow TransitionComponent={Grow}>
+            <Tooltip title="Sell (S)" placement="top" arrow TransitionComponent={Grow} onClick={handleSellClick}>
               <button className="sell">Sell</button>
             </Tooltip>
             <Tooltip title="Analytics (A)" placement="top" arrow TransitionComponent={Grow}>

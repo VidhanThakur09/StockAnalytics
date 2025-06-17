@@ -19,7 +19,7 @@ export default function WatchListItem ({stock}){
                 <span className='price'>{stock.price}</span>
             </div>
         </div>
-        {showWatchListActions && <WatchListAction uid={stock.uid} />}
+        {showWatchListActions && <WatchListAction uid={stock._id} />}
     </li>
   )
 }
