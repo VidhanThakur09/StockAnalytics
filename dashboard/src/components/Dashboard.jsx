@@ -11,7 +11,7 @@ import Summary from "./Summary.jsx";
 import WatchList from "./WatchList.jsx";
 import  GeneralContextProvider from "./GeneralContext.jsx";
 
-export default function Dashboard(){
+export default function Dashboard({userName}) {
   return (
     <div className="dashboard-container">
       <GeneralContextProvider>
@@ -19,7 +19,7 @@ export default function Dashboard(){
       </GeneralContextProvider>
       <div className="content">
         <Routes>
-          <Route exact path="/*" element={<Summary />} />
+          <Route exact path="/*" element={<Summary userName={userName} />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/holdings" element={<Holdings />} />
           <Route path="/positions" element={<Positions />} />

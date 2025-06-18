@@ -2,7 +2,7 @@ import React from "react";
 
 import Menu from "./Menu";
 
-export default function TopBar() {
+export default function TopBar({ onClickLogout, userName = "ZU" }) {
   return (
     <div className="topbar-container">
       <div className="indices-container">
@@ -18,7 +18,7 @@ export default function TopBar() {
         </div>
       </div>
 
-      <Menu />
+      <Menu onClickLogout={onClickLogout} userName={userName} />
     </div>
   );
 };

@@ -6,10 +6,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
+const authRoute = require("./routes/AuthRoute.js");
+
+
 const holdingsModel = require('./model/HoldingsModel.js');
 const positionsModel = require('./model/PositionsModel.js');
 const ordersModel = require('./model/OrdersModel.js');
 const WatchListModel = require('./model/WatchListModel.js');
+const UserModel = require('./model/UserModel.js');
+
+const { userVerification } = require('./middlewares/AuthMiddleware.js');
+
 
 const PORT = process.env.PORT || 3002;
 const MONGO_URL = process.env.MONGO_URL;
@@ -17,6 +25,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 main()
 .then(()=>{
@@ -46,6 +55,11 @@ const WatchListInitDB = async()=>{
 app.get('/', (req, res) => {
     res.send('Welcome to the Express.js');
 });
+
+app.post('/', userVerification, (req, res) => {
+    res.json({ status: true });
+});
+
 app.get('/allholdings', async (req, res) => {
     let allHoldings = await holdingsModel.find({});
     res.json(allHoldings);
@@ -99,6 +113,8 @@ app.post('/stock/:id', async (req, res) => {
   res.send("Order saved!");
 });
 
+app.use("/signup", authRoute);
+app.use("/login", authRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

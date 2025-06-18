@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import {Link} from "react-router-dom";
 
 
-export default function Menu() {
+export default function Menu({onClickLogout,userName}) {
   const [SelectedMenu,setSelectedMenu] = useState(0);
   const [isProfileDropDownOpen,setIsProfileDropDownOpen] = useState(false);
 
@@ -52,9 +52,12 @@ export default function Menu() {
           </li>
         </ul>
         <hr />
+        <a href="" onClick={onClickLogout} style={{textDecoration:"none"}}><p style={{paddingRight: "10px",fontSize: "12px",color:"grey"}} >Logout</p></a>
         <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+
+          <div className="avatar">{userName!==undefined?(userName.charAt(0)+""+userName.charAt(userName.length-1)):"ZU"}</div>
+          <p className="username">{userName}</p>
+
         </div>
       </div>
     </div>
