@@ -13,26 +13,44 @@ export default function Home() {
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
-        navigate("/login");
+        // NOTE: Redirecting to a different application on a different port (from 3001 to 3000).
+        // We must use window.location.href for this, not the react-router navigate function.
+        window.location.href = "http://localhost:3000/login";
+        return;
       }
-      const { data } = await axios.post(
-        "http://localhost:3002",
-        {},
-        { withCredentials: true }
-      );
-      const { status, user } = data;
-      setUsername(user);
-      return status
-        ? toast(`Hello ${user}`, {
-            position: "top-right",
-          })
-        : (removeCookie("token"), navigate("http://localhost:3000/login"));
+      try {
+        // The axios call correctly points to your backend server at http://localhost:3002.
+        const { data } = await axios.post(
+          "http://localhost:3002",
+          {},
+          { withCredentials: true }
+        );
+        const { status, user } = data;
+        setUsername(user);
+
+        if (!status) {
+          removeCookie("token");
+          // NOTE: If verification fails, redirect to the login page on the frontend application.
+          window.location.href = "http://localhost:3000/login";
+        } else {
+            toast(`Hello ${user}`, {
+                position: "top-right",
+            });
+        }
+      } catch (error) {
+          removeCookie("token");
+          // NOTE: If there's an error, redirect to the login page on the frontend application.
+          window.location.href = "http://localhost:3000/login";
+      }
     };
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+    // NOTE: navigate is removed from the dependency array.
+  }, [cookies, removeCookie]);
+
   const Logout = () => {
     removeCookie("token");
-    navigate("http://localhost:3000/signup");
+    // NOTE: On logout, redirect to the signup page on the frontend application (port 3000).
+    window.location.href = "http://localhost:3000/signup";
   };
   if(username === undefined) {
     setUsername("ZU");
