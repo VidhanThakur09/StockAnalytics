@@ -1,0 +1,496 @@
+/* AnalyzerStyles.css */
+
+/* Font import (ensure this link is also in your public/index.html <head>) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main App Container */
+.analyzer-app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    min-height: 100vh;
+    color: #e2e8f0; /* Light text for contrast */
+}
+
+/* Header Styling */
+.analyzer-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 896px;
+}
+
+.analyzer-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #4299e1; /* A vibrant blue */
+    margin-bottom: 0.5rem;
+}
+
+.analyzer-header p {
+    font-size: 1rem;
+    color: #a0aec0; /* Lighter gray for muted text */
+}
+
+/* Main Content Card */
+.analyzer-main-card {
+    background-color:rgb(77, 77, 248); /* Slightly lighter dark for the card */
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 896px;
+    box-sizing: border-box; /* Ensure padding doesn't increase total width */
+}
+
+/* Form Group (for floating labels) */
+.analyzer-form-group {
+    position: relative;
+    margin-bottom: 2rem; /* More space for floating label */
+}
+
+/* Form Control (Input/Textarea) */
+.analyzer-form-control {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    border: 1px solid #4a5568; /* Darker border */
+    border-radius: 0.5rem;
+    /* Dark input background */
+    color: #000000; /* Light text */
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.analyzer-form-control:focus {
+    outline: none;
+    border-color: #4299e1; /* Blue focus border */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); /* Blue glow */
+}
+
+.analyzer-form-control::placeholder {
+    color: transparent; /* Hide placeholder for floating label effect */
+}
+
+/* Floating Label */
+.analyzer-form-label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.875rem;
+    color: #a0aec0; /* Muted label color */
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+    font-size: 1rem;
+}
+
+/* Floating label movement */
+.analyzer-form-control:focus + .analyzer-form-label,
+.analyzer-form-control:not(:placeholder-shown) + .analyzer-form-label {
+    top: -1.2rem;
+    font-size: 0.8rem;
+    color: #ffffff; /* Blue when active/filled */
+}
+
+/* Textarea specific adjustments */
+.analyzer-form-control.analyzer-textarea {
+    min-height: 5rem; /* Sufficient height for prompt */
+    resize: vertical; /* Allow vertical resizing */
+    color: #202a3a;
+    background-color: white;
+}
+
+/* Button Styling */
+.analyzer-btn {
+    display: block; /* Make button full width by default in this context */
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analyzer-btn-primary {
+    background-color: #ff0000; /* Vibrant blue */
+    color: #ffffff;
+}
+
+.analyzer-btn-primary:hover {
+    background-color: #e74747; /* Darker blue on hover */
+    box-shadow: 0 5px 10px rgba(66, 153, 225, 0.3);
+}
+
+.analyzer-btn-primary:disabled {
+    background-color: #e74747; /* Muted blue when disabled */
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+/* Loading Spinner */
+.analyzer-loading-container {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.analyzer-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff; /* Blue spinner */
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Alert/Error Messages */
+.analyzer-alert {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.analyzer-alert-danger {
+    background-color: #fee2e2; /* Light red */
+    color: #ef4444; /* Darker red text */
+    border: 1px solid #fca5a5;
+}
+
+.analyzer-alert-warning {
+    background-color: #fefcbf; /* Light yellow */
+    color: #d97706; /* Darker yellow text */
+    border: 1px solid #fcd34d;
+}
+
+/* Analysis Display Section */
+.analyzer-analysis-section {
+    margin-top: 3rem;
+}
+
+.analyzer-analysis-container {
+    margin-top: 1.5rem; /* mt-4 */
+    padding: 1.5rem; /* p-4 */
+    background-color: #ffffff; /* Dark blue-gray for analysis background */
+    border-radius: 0.75rem; /* rounded */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* shadow */
+}
+
+.analyzer-analysis-container h2 {
+    font-size: 1.5rem; /* fs-4 */
+    font-weight: 600; /* fw-semibold */
+    margin-bottom: 1rem; /* mb-3 */
+    color: #f27878; /* text-success */
+}
+
+.analyzer-analysis-container .analyzer-text-light {
+    color: #000000; /* text-light */
+    line-height: 1.7;
+}
+
+.analyzer-analysis-container p {
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+/* Sources & Further Reading Section */
+.analyzer-sources-section {
+    margin-top: 1.5rem;
+}
+
+.analyzer-sources-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff; /* Teal color */
+    margin-bottom: 0.75rem;
+}
+
+.analyzer-grounding-links-container {
+    padding: 1rem; /* p-3 */
+    background-color: #ffffff; /* Dark blue-gray */
+    border-radius: 0.75rem; /* rounded */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* shadow-sm */
+}
+
+.analyzer-grounding-links-container ul {
+    list-style: none; /* list-unstyled */
+    padding: 0;
+    margin-bottom: 0; /* mb-0 */
+}
+
+.analyzer-grounding-links-container li {
+    margin-bottom: 0.5rem; /* mb-1 */
+}
+
+.analyzer-grounding-links-container a {
+    color: #d14f4f; /* text-info */
+    text-decoration: underline; /* text-decoration-underline */
+    word-break: break-all;
+    transition: color 0.2s ease;
+}
+
+.analyzer-grounding-links-container a:hover {
+    color: #319795; /* Darker teal on hover */
+}
+
+/* Chat Section */
+.analyzer-chat-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #000000; /* Subtle border */
+}
+
+.analyzer-chat-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff; /* Green color */
+    margin-bottom: 1.5rem;
+}
+
+.analyzer-chat-container-scroll {
+    background-color: #ffffff; /* Even darker blue-gray for chat messages background */
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+    margin-bottom: 1.5rem;
+    max-height: 400px; /* Fixed height with scroll */
+    overflow-y: auto;
+    border: 1px solid #364052;
+}
+
+/* Individual chat message item */
+.analyzer-chat-message-item {
+    margin-bottom: 1rem;
+}
+
+/* Chat Message Display */
+.analyzer-chat-message-bubble {
+    padding: 1rem; /* p-3 */
+    border-radius: 0.5rem; /* rounded */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* shadow-sm */
+    max-width: 75%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.analyzer-chat-message-bubble.analyzer-user-message {
+    background-color: #4299e1; /* primary */
+    color: #ffffff; /* text-light */
+    margin-left: auto; /* ms-auto */
+}
+
+.analyzer-chat-message-bubble.analyzer-error-message {
+    background-color: #e53e3e; /* danger */
+    color: #ffffff; /* text-light */
+    margin-right: auto; /* me-auto */
+}
+
+.analyzer-chat-message-bubble.analyzer-analysis-message {
+    background-color: rgba(79, 209, 197, 0.25); /* info bg-opacity-25 */
+    color: #4fd1c5; /* text-info-emphasis */
+    border: 1px solid rgba(79, 209, 197, 0.5); /* border border-info-subtle */
+    margin-right: auto; /* me-auto */
+}
+
+.analyzer-chat-message-bubble.analyzer-ai-message {
+    background-color: #00ffc3; /* light */
+    color: #2d3748; /* dark */
+    margin-right: auto; /* me-auto */
+}
+
+.analyzer-chat-message-bubble .analyzer-sender-name {
+    font-size: 0.875rem; /* small */
+    font-weight: 600; /* fw-semibold */
+    margin-bottom: 0.25rem; /* mb-1 */
+    opacity: 0.75;
+}
+
+.analyzer-chat-message-bubble .analyzer-message-text {
+    font-size: 1rem; /* fs-6 */
+}
+
+.analyzer-chat-message-bubble .analyzer-message-link {
+    font-weight: 600; /* fw-bold */
+    text-decoration: underline;
+}
+
+.analyzer-chat-message-bubble .analyzer-user-message .analyzer-message-link,
+.analyzer-chat-message-bubble .analyzer-error-message .analyzer-message-link {
+    color: #ffffff; /* text-light */
+}
+
+.analyzer-chat-message-bubble .analyzer-ai-message .analyzer-message-link {
+    color: #4299e1; /* text-primary */
+}
+
+.analyzer-chat-input-form {
+    display: flex;
+    gap: 0.75rem; /* gap-2 */
+}
+
+.analyzer-chat-input-control {
+    flex-grow: 1; /* flex-grow-1 */
+    background-color: #ffffff; /* bg-dark */
+    color: #000000; /* text-light */
+    border: 1px solid #4a5568; /* border-secondary */
+    padding: 0.75rem 1rem; /* form-control-lg padding approx */
+    border-radius: 0.5rem;
+    font-size: 1.1rem; /* form-control-lg font-size approx */
+    box-sizing: border-box;
+}
+
+.analyzer-chat-input-control::placeholder {
+    color: #a0aec0; /* Lighter placeholder text */
+}
+
+.analyzer-chat-input-control:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.analyzer-chat-input-control:disabled {
+    background-color: #ffffff;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.analyzer-chat-send-btn {
+    min-width: 80px; /* minWidth: '80px' */
+    background-color: #000000; /* btn-success */
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem; /* btn-lg padding approx */
+    font-size: 1.1rem; /* btn-lg font-size approx */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analyzer-chat-send-btn:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.881); /* Darker green on hover */
+}
+
+.analyzer-chat-send-btn:disabled {
+    background-color: rgba(0, 0, 0, 0.881);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.analyzer-chat-send-btn .analyzer-spinner-sm {
+    width: 1rem; /* spinner-border-sm */
+    height: 1rem; /* spinner-border-sm */
+    border: 0.125em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: analyzer-spinner-border .75s linear infinite;
+    vertical-align: text-bottom;
+}
+
+.analyzer-chat-send-btn .analyzer-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 1px;
+    overflow: hidden;
+    /* clip: rect(0, 0, 0, 0); */
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* Footer Styling */
+.analyzer-footer {
+    width: 100%;
+    margin-top: 3rem;
+    text-align: center;
+    color: #a0aec0; /* Muted gray */
+    font-size: 0.85rem;
+    max-width: 896px;
+}
+
+/* Utility classes (retained from Bootstrap-like functionality but defined here) */
+.analyzer-text-primary {
+    color: #000000;
+}
+
+.analyzer-text-muted {
+    color: #a0aec0;
+}
+
+.analyzer-text-info {
+    color: #4fd1c5;
+}
+
+.analyzer-text-success {
+    color: #68d391;
+}
+
+.analyzer-fw-bold {
+    font-weight: 700;
+}
+
+.analyzer-fw-semibold {
+    font-weight: 600;
+}
+
+/* Display and layout utilities */
+.analyzer-d-flex { display: flex; }
+.analyzer-flex-column { flex-direction: column; }
+.analyzer-align-items-center { align-items: center; }
+.analyzer-justify-content-center { justify-content: center; }
+.analyzer-w-100 { width: 100%; }
+.analyzer-d-grid {
+    display: grid;
+}
+
+/* Spacing utilities (using common naming convention, adjust as needed) */
+.analyzer-mb-4 { margin-bottom: 1.5rem; } /* equivalent to Bootstrap's mb-4 */
+.analyzer-mt-4 { margin-top: 1.5rem; }
+.analyzer-mt-2 { margin-top: 0.5rem; }
+.analyzer-mb-3 { margin-bottom: 1rem; }
+.analyzer-mt-5 { margin-top: 3rem; }
+.analyzer-pt-4 { padding-top: 1.5rem; }
+.analyzer-mb-2 { margin-bottom: 0.5rem; }
+
+/* Custom spinner for button */
+.analyzer-button-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-bottom;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: analyzer-spinner-border .75s linear infinite;
+}
+
+@keyframes analyzer-spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+.analyzer-me-2 {
+  margin-right: 0.5rem;
+  color:white
+}

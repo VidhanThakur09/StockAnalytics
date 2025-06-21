@@ -10,6 +10,7 @@ import Positions from "./Positions.jsx";
 import Summary from "./Summary.jsx";
 import WatchList from "./WatchList.jsx";
 import  GeneralContextProvider from "./GeneralContext.jsx";
+import Stock_Analyzer from "./Stock_Analyzer.jsx";
 
 export default function Dashboard({userName}) {
   return (
@@ -24,7 +25,7 @@ export default function Dashboard({userName}) {
           <Route path="/holdings" element={<Holdings />} />
           <Route path="/positions" element={<Positions />} />
           <Route path="/funds" element={<Funds />} />
-          <Route path="/analyze" element={<Analyze />} />
+          <Route path="/analyze" element={<Stock_Analyzer />} />
         </Routes>
       </div>
     </div>
