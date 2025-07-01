@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
+const backendPort = import.meta.env.VITE_BACKEND_PORT;
+const dashboardPort = import.meta.env.VITE_DASHBOARD_PORT;
 const Signup = () => {
   const [inputValue, setInputValue] = useState({
     email: "",

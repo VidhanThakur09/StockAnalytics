@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 export default function Home() {
   const backendPort = import.meta.env.VITE_BACKEND_PORT;
+  const frontendPort = import.meta.env.VITE_FRONTEND_PORT;
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("ZU");
@@ -51,7 +52,7 @@ export default function Home() {
   const Logout = () => {
     removeCookie("token");
     // NOTE: On logout, redirect to the signup page on the frontend application (port 3000).
-    window.location.href = `${backendPort}/signup`;
+    window.location.href = `${frontendPort}/signup`;
   };
   if(username === undefined) {
     setUsername("ZU");
