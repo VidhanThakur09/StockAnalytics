@@ -3,10 +3,11 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 export default function Orders() {
+  const backendPort = import.meta.env.VITE_BACKEND_PORT;
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allorders").then((response) => {
+    axios.get(`${backendPort}/allorders`).then((response) => {
       setOrders(response.data);
       console.log(response.data);
     });

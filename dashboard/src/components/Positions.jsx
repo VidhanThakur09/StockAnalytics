@@ -2,9 +2,10 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 // import {positions} from '../data/data.js'
 export default function Positions() {
+  const backendPort = import.meta.env.VITE_BACKEND_PORT;
   const [positions, setPositions] = useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:3002/allpositions').then((response) => {
+    axios.get(`${backendPort}/allpositions`).then((response) => {
       console.log(response.data);
       setPositions(response.data);
     })

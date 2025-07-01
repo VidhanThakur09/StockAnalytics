@@ -3,9 +3,10 @@ import axios from 'axios';
 import { VerticalGraph } from './VerticalGraph';
 import { DoughnutChart } from './DoughnutChart';
 export default function Holdings() {
+  const backendPort = import.meta.env.VITE_BACKEND_PORT;
   const [holdings, setHoldings] = useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:3002/allholdings').then((response) => {
+    axios.get(`${backendPort}/allholdings`).then((response) => {
       console.log(response.data);
       setHoldings(response.data);
     })

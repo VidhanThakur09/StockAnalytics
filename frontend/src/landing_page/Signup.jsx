@@ -40,7 +40,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        `${backendPort}/signup`,
         { ...inputValue },
         { withCredentials: true }
       );
@@ -48,7 +48,7 @@ const Signup = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3001/";
+          window.location.href = `${dashboardPort}/`;
         }, 1000);
       } else {
         handleError(message);

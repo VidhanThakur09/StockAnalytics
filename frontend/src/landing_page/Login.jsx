@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
+const backendPort = import.meta.env.VITE_BACKEND_PORT;
+const dashboardPort = import.meta.env.VITE_DASHBOARD_PORT;
 const Login = () => {
   const [inputValue, setInputValue] = useState({
     email: "",
@@ -36,7 +38,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/login",
+        `${backendPort}/login`,
         { ...inputValue },
         { withCredentials: true }
       );
@@ -44,7 +46,7 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3001/";
+          window.location.href = `${dashboardPort}/`;
         }, 1000);
       } else {
         handleError(message);

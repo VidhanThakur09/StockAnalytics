@@ -6,12 +6,13 @@ import '/public/css/BuyActionWindow.css';
 // import axios from 'axios';
 
 const BuyActionWindow = ({ uid }) => {
+  const backendPort = import.meta.env.VITE_BACKEND_PORT;
   const [stockData, setStockData] = useState([]);
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
   useEffect(()=>{
-    axios.post(`http://localhost:3002/stock/${uid}`).then((response) => {
+    axios.post(`${backendPort}/stock/${uid}`).then((response) => {
       console.log(response.data);
       setStockData(response.data);
       setStockPrice(response.data.price || 0.0);
@@ -19,7 +20,7 @@ const BuyActionWindow = ({ uid }) => {
   }, [])
 
   const handleBuyClick = () => {
-    axios.post("http://localhost:3002/newOrder", {
+    axios.post(`${backendPort}/newOrder`, {
       name: stockData.name,
       qty: stockQuantity,
       price: stockPrice,

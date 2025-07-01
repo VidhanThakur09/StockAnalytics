@@ -6,9 +6,10 @@ import { DoughnutChart } from "./DoughnutChart.jsx";
 import axios from 'axios';
 
 export default function WatchList() {
+  const backendPort = import.meta.env.VITE_BACKEND_PORT;
   const [watchlist, setWatchlist] = useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:3002/allwatchlist').then((response) => {
+    axios.get(`${backendPort}/allwatchlist`).then((response) => {
       console.log(response.data);
       setWatchlist(response.data);
     })
