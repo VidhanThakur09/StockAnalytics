@@ -42,7 +42,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${backendPort}/signup`,
+        `/api/signup`,
         { ...inputValue },
         { withCredentials: true, redirect: "manual" }
       );

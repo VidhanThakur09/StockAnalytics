@@ -23,9 +23,9 @@ export default function Home() {
       try {
         // The axios call correctly points to your backend server at http://localhost:3002.
         const { data } = await axios.post(
-          `${backendPort}`,
+          "/api/", // Call the local /api/ path
           {},
-          { withCredentials: true, redirect: "manual" }
+          { withCredentials: true }
         );
         const { status, user } = data;
         setUsername(user);
