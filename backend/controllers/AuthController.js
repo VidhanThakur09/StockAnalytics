@@ -16,6 +16,7 @@ module.exports.Signup = async (req, res, next) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: true, // Always use secure in production
+      sameSite:'none',
       path: '/'
       // 'domain' and 'sameSite' are removed to use default same-origin policy
     });
@@ -51,6 +52,7 @@ module.exports.Login = async (req, res, next) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: true, // Always use secure in production
+      sameSite: 'none',
       path: '/'
       // 'domain' and 'sameSite' are removed to use default same-origin policy
     });
