@@ -44,7 +44,7 @@ const Signup = () => {
       const { data } = await axios.post(
         `${backendPort}/signup`,
         { ...inputValue },
-        { withCredentials: true }
+        { withCredentials: true, redirect: "manual" }
       );
       const { success, message } = data;
       if (success) {

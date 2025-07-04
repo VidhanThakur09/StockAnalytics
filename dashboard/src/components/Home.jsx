@@ -17,7 +17,7 @@ export default function Home() {
       if (!cookies.token) {
         // NOTE: Redirecting to a different application on a different port (from 3001 to 3000).
         // We must use window.location.href for this, not the react-router navigate function.
-        window.location.href = `${backendPort}/login`;
+        window.location.href = `${frontendPort}/login`;
         return;
       }
       try {
@@ -25,7 +25,7 @@ export default function Home() {
         const { data } = await axios.post(
           `${backendPort}`,
           {},
-          { withCredentials: true }
+          { withCredentials: true, redirect: "manual" }
         );
         const { status, user } = data;
         setUsername(user);
@@ -33,7 +33,7 @@ export default function Home() {
         if (!status) {
           removeCookie("token");
           // NOTE: If verification fails, redirect to the login page on the frontend application.
-          window.location.href = `${backendPort}/login`;
+          window.location.href = `${frontendPort}/login`;
         } else {
             toast(`Hello ${user}`, {
                 position: "top-right",
@@ -42,7 +42,7 @@ export default function Home() {
       } catch (error) {
           removeCookie("token");
           // NOTE: If there's an error, redirect to the login page on the frontend application.
-          window.location.href = `${backendPort}/login`;
+          window.location.href = `${frontendPort}/login`;
       }
     };
     verifyCookie();
