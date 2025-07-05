@@ -9,12 +9,13 @@ import { ToastContainer, toast } from "react-toastify";
 export default function Home() {
   const backendPort = import.meta.env.VITE_BACKEND_PORT;
   const frontendPort = import.meta.env.VITE_FRONTEND_PORT;
+  const defaultToken = import.meta.env.VITE_DEFAULT_TOKEN;
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("ZU");
   useEffect(() => {
     const verifyCookie = async () => {
-      if (!cookies.token) {
+      if (!cookies.token || !defaultToken) {
         // NOTE: Redirecting to a different application on a different port (from 3001 to 3000).
         // We must use window.location.href for this, not the react-router navigate function.
         window.location.href = `${frontendPort}/login`;
