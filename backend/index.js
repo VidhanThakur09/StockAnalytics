@@ -15,6 +15,7 @@ const ordersModel = require('./model/OrdersModel.js');
 const WatchListModel = require('./model/WatchListModel.js');
 const UserModel = require('./model/UserModel.js');
 
+
 const { userVerification } = require('./middlewares/AuthMiddleware.js');
 
 const PORT = process.env.PORT || 3002;
@@ -23,7 +24,7 @@ const app = express();
 
 // It's recommended to configure CORS once. The second app.use(cors()) is redundant.
 app.use(cors({
-    origin: ['https://stockanalytics-dashboard.onrender.com', 'https://stockanalytics-frontend.onrender.com'], // Allow requests only from your frontend origin
+    origin: [process.env.DASHBOARD_PORT, process.env.FRONTEND_PORT], // Allow requests only from your frontend origin
     credentials: true, // Allow cookies to be sent with the request
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed request headers
