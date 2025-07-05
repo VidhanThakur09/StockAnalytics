@@ -15,7 +15,7 @@ export default function Home() {
   const [username, setUsername] = useState("ZU");
   useEffect(() => {
     const verifyCookie = async () => {
-      if (!cookies.token || !defaultToken) {
+      if (!cookies.token) {
         // NOTE: Redirecting to a different application on a different port (from 3001 to 3000).
         // We must use window.location.href for this, not the react-router navigate function.
         window.location.href = `${frontendPort}/login`;
@@ -46,7 +46,7 @@ export default function Home() {
           window.location.href = `${frontendPort}/login`;
       }
     };
-    verifyCookie();
+    // verifyCookie(); // stop verifying cookie on every render so that user can use the dashboard without being redirected to login page.
     // NOTE: navigate is removed from the dependency array.
   }, [cookies, removeCookie]);
 
