@@ -51,7 +51,7 @@ export default function Home() {
   }, [cookies, removeCookie]);
 
   const Logout = () => {
-    removeCookie("token"); // IMPORTANT: Remove the token cookie
+    removeCookie("token", { path: '/' });// IMPORTANT: Remove the token cookie
     console.log("Redirecting to:", {frontendPort});
   // After removing the cookie, redirect to the login page
   window.location.href = `${frontendPort}/login`;
