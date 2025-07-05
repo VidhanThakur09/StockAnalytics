@@ -51,9 +51,9 @@ export default function Home() {
   }, [cookies, removeCookie]);
 
   const Logout = () => {
-    // removeCookie("token"); // NOTE: The cookie is removed when the user clicks on the logout button.
-    // NOTE: On logout, redirect to the signup page on the frontend application (port 3000).
-    window.location.href = `${frontendPort}/login`;
+    removeCookie("token"); // IMPORTANT: Remove the token cookie
+  // After removing the cookie, redirect to the login page
+  window.location.href = `${frontendPort}/login`;
   };
   if(username === undefined) {
     setUsername("ZU");
