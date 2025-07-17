@@ -14,3 +14,26 @@
     font-size: .8rem !important;
     color: #666;
 }
+
+@media (max-width: 767px) {
+    .links{
+        font-size: 10px;
+    }
+    .col .para{
+        font-size: 12px;
+    }
+    .subtitle{
+        font-size: .5rem !important;    
+    }
+}
+.my-logo {
+    width: 50%; /* This is your default desktop width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for mobile view */
+@media (max-width: 767px) { /* Adjust this breakpoint as needed */
+    .my-logo {
+        width: 100%; /* Change to 100% on mobile */
+    }
+}

@@ -8,7 +8,7 @@ export default function ProductPage() {
     <>
         <Hero />
         <LeftSection imageUrl="images/kite.png" productName="Kite" productDescription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices." tryDemo="#" learnMore="#" googlePlay="#" appStore="#" />
-        <RightSection imageUrl="images/console.png" productName="Console" productDescription="The central dashboard for your Zerodha account. Gain insights into your trades and investments with in-depth reports and visualisations." tryDemo="#" />
+        <RightSection imageUrl="images/console.png" productName="Console" productDescription="The central dashboard for your Stoxight account. Gain insights into your trades and investments with in-depth reports and visualisations." tryDemo="#" />
       <LeftSection
         imageUrl="images/coin.png"
         productName="Coin"
@@ -31,10 +31,9 @@ export default function ProductPage() {
         appStore="#"
       />
        <p className="text-center mt-5 mb-5" style={{"fontSize":"1.25rem","lineHeight":"1.8" ,"fontWeight":"400" , "marginTop":"10px"}}>
-        Want to know more about our technology stack? Check out the <a style={{"textDecoration":"none"}} href="https://zerodha.tech">Zerodha.tech</a> blog.
+        Want to know more about our technology stack? Check out the <a style={{"textDecoration":"none"}} href="https://Stoxight.tech">Stoxight.tech</a> blog.
       </p>
         <Universe />
     </>
   )
 }
-

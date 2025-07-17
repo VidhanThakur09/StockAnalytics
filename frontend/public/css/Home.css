@@ -19,3 +19,16 @@
 .heroBtn:hover{
     color: #387ed1;
 }
+
+@media (max-width: 767px) {
+    .heroBtn{
+    width: 50%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: #387ed1;
+    color: white;
+}
+    .heroLink {
+        font-size: 16px !important; /* Specific for mobile */
+    }
+}
