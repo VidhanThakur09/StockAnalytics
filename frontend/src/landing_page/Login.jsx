@@ -38,7 +38,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${backendPort}/login`,
+        `/api/login`,
         { ...inputValue },
         { withCredentials: true, redirect: "manual" }
       );

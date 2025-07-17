@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="container border-top mt-5">
         <div className="row mt-5">
           <div className="col">
-            <img src="images/logo.svg" style={{ width: "50%" }} />
+            <img src="images/logo.png" className="my-logo" />
             <p className="subtitle">
-              &copy; 2025 - 2026, Not Zerodha Broking Ltd. <br />
+              &copy; 2025 - 2026, Not Stoxight Broking Ltd. <br />
               All rights reserved.
             </p>
           </div>
@@ -24,11 +24,11 @@ export default function Footer() {
             <br />
             <a className="links" href="">Careers</a>
             <br />
-            <a className="links" href="">Zerodha.tech</a>
+            <a className="links" href="">Stoxight.tech</a>
             <br />
             <a className="links" href="">Press & media</a>
             <br />
-            <a className="links" href="">Zerodha cares (CSR)</a>
+            <a className="links" href="">Stoxight cares (CSR)</a>
             <br />
           </div>
           <div className="col">
@@ -56,15 +56,15 @@ export default function Footer() {
         </div>
         <div className="mt-5 text-muted" style={{ fontSize: "10px" }}>
           <p>
-            Zerodha Broking Ltd.: Member of NSE​ &​ BSE – SEBI Registration no.:
-            INZ000031633 CDSL: Depository services through Zerodha Securities
+            Stoxight Broking Ltd.: Member of NSE​ &​ BSE – SEBI Registration no.:
+            INZ000031633 CDSL: Depository services through Stoxight Securities
             Pvt. Ltd. – SEBI Registration no.: IN-DP-100-2015 Commodity Trading
-            through Zerodha Commodities Pvt. Ltd. MCX: 46025 – SEBI Registration
-            no.: INZ000038238 Registered Address: Zerodha Broking Ltd.,
+            through Stoxight Commodities Pvt. Ltd. MCX: 46025 – SEBI Registration
+            no.: INZ000038238 Registered Address: Stoxight Broking Ltd.,
             #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public School,
             J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India. For any
             complaints pertaining to securities broking please write to
-            complaints@zerodha.com, for DP related to dp@zerodha.com. Please
+            complaints@Stoxight.com, for DP related to dp@Stoxight.com. Please
             ensure you carefully read the Risk Disclosure Document as prescribed
             by SEBI | ICF
           </p>
@@ -96,7 +96,7 @@ export default function Footer() {
             of allotment. In case of non allotment the funds will remain in your
             bank account. As a business we don't give stock tips, and have not
             authorized anyone to trade on behalf of others. If you find anyone
-            claiming to be part of Zerodha and offering such services, please
+            claiming to be part of Stoxight and offering such services, please
             create a ticket here.
           </p>
         </div>
