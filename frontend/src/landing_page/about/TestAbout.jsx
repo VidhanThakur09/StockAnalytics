@@ -1,5 +1,5 @@
-import { Button } from '/public/component/Button'; // Assuming these are now Bootstrap-styled components or simple HTML buttons
-import { Card, CardContent } from '/public/component/card'; // Assuming these are now Bootstrap-styled components or simple HTML cards
+import { Button } from '../component/Button'; // Assuming these are now Bootstrap-styled components or simple HTML buttons
+import { Card, CardContent } from '../component/Card'; // Assuming these are now Bootstrap-styled components or simple HTML cards
 import { 
   GraduationCap, 
   MapPin, 
